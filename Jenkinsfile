@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        IMAGE_NAME= 'pradippipaliya/react_app:1.6.2'
+        IMAGE_NAME= 'pradippipaliya/react_app1'
     }
 
     stages {
@@ -43,9 +43,9 @@ pipeline {
                     def dockerCreate="docker run -p 3000:3000 --name ec2-react ${IMAGE_NAME}"
 
                     sshagent(['ec2-linux-key']) {
-                        sh "ssh -o StrictHostKeyChecking=no ec2-user@44.202.72.214  ${dockerStop}"
-                        sh "ssh -o StrictHostKeyChecking=no ec2-user@44.202.72.214  ${dockerDelete}"
-                        sh "ssh -o StrictHostKeyChecking=no ec2-user@44.202.72.214  ${dockerCreate}"
+                        // sh "ssh -o StrictHostKeyChecking=no ec2-user@184.73.45.199  ${dockerStop}"
+                        // sh "ssh -o StrictHostKeyChecking=no ec2-user@184.73.45.199  ${dockerDelete}"
+                        sh "ssh -o StrictHostKeyChecking=no ec2-user@184.73.45.199  ${dockerCreate}"
 
                     }
                 }
